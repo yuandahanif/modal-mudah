@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -28,6 +29,9 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private TextArea deskripsi, dataDiri_alamat;
+    
+    @FXML
+    private Button submit;
 
     @FXML
     private void handleButtonAction(ActionEvent event) {

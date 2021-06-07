@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modalmudah.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="726.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="modalmudah.FXMLDocumentController">
     <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
+        <Button fx:id="button" layoutX="14.0" layoutY="26.0" onAction="#handleButtonAction" text="Lihat" />
+      <Label layoutX="306.0" layoutY="87.0" minHeight="16" minWidth="69" text="BUAT PROPOSAL">
+         <font>
+            <Font name="Segoe UI Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="button1" layoutX="81.0" layoutY="26.0" onAction="#handleButtonAction" text="Ubah" />
+      <Button fx:id="button11" layoutX="144.0" layoutY="26.0" onAction="#handleButtonAction" text="Hapus" />
+      <Button fx:id="button111" layoutX="331.0" layoutY="495.0" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="87.0" text="Submit" />
+      <Button fx:id="button1111" layoutX="213.0" layoutY="26.0" onAction="#handleButtonAction" text="Lihat Grafik" />
+      <Label layoutX="80.0" layoutY="135.0" minHeight="16" minWidth="69" text="PROPOSAL">
+         <font>
+            <Font name="Segoe UI Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="470.0" layoutY="135.0" minHeight="16" minWidth="69" text="DATA DIRI">
+         <font>
+            <Font name="Segoe UI Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="79.0" layoutY="180.0" prefHeight="36.0" prefWidth="243.0" promptText="Nama UKM" />
+      <TextArea layoutX="79.0" layoutY="231.0" prefHeight="89.0" prefWidth="243.0" promptText="Deskripsi UKM" />
+      <TextField layoutX="79.0" layoutY="333.0" prefHeight="36.0" prefWidth="243.0" promptText="Jumlah Modal" />
+      <TextField layoutX="79.0" layoutY="386.0" prefHeight="36.0" prefWidth="243.0" promptText="File Proposal" />
+      <TextField layoutX="463.0" layoutY="170.0" prefHeight="36.0" prefWidth="243.0" promptText="Nama " />
+      <TextField layoutX="463.0" layoutY="231.0" prefHeight="36.0" prefWidth="243.0" promptText="No. Indentitas" />
+      <TextArea layoutX="463.0" layoutY="289.0" prefHeight="89.0" prefWidth="243.0" promptText="Alamat" />
     </children>
 </AnchorPane>

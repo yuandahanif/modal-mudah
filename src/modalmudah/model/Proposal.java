@@ -32,6 +32,10 @@ public class Proposal {
         this.file_UKM = file_UKM;
     }
 
+    public Proposal() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getId() {
         return id;
     }

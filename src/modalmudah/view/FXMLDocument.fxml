@@ -19,7 +19,7 @@
       </Label>
       <Button fx:id="button1" layoutX="81.0" layoutY="26.0" onAction="#handleButtonAction" text="Ubah" />
       <Button fx:id="button11" layoutX="144.0" layoutY="26.0" onAction="#handleButtonAction" text="Hapus" />
-      <Button fx:id="submit" layoutX="331.0" layoutY="463.0" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="87.0" text="Submit" />
+      <Button fx:id="submit" layoutX="288.0" layoutY="463.0" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="87.0" text="Submit" />
       <Button fx:id="button1111" layoutX="213.0" layoutY="26.0" onAction="#handleButtonAction" text="Lihat Grafik" />
       <Label layoutX="80.0" layoutY="141.0" minHeight="16" minWidth="69" text="PROPOSAL">
          <font>
@@ -47,5 +47,7 @@
       </TableView>
       <Button fx:id="hapus" layoutX="247.0" layoutY="743.0" mnemonicParsing="false" onAction="#handleHapusButtonAction" text="Hapus" />
       <Button fx:id="ubah" layoutX="365.0" layoutY="743.0" mnemonicParsing="false" onAction="#handleUpdateButtonAction" text="Ubah" />
+      <Button fx:id="ubayhBeneran" layoutX="395.0" layoutY="463.0" onAction="#handleUbahButtonAction" prefHeight="36.0" prefWidth="87.0" text="Ubah" />
+      <Button fx:id="submit11" layoutX="500.0" layoutY="463.0" onAction="#handleClearButtonAction" prefHeight="36.0" prefWidth="87.0" text="clear" />
     </children>
 </AnchorPane>

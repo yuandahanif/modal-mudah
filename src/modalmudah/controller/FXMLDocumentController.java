@@ -57,6 +57,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button submit, hapus, ubah, ubayhBeneran;
 
+    //tombol Submit
     @FXML
     private void handleButtonAction(ActionEvent event) {
         try {
@@ -73,6 +74,7 @@ public class FXMLDocumentController implements Initializable {
 
     }
 
+    //tombol hapus
     @FXML
     private void handleHapusButtonAction(ActionEvent event) {
         ObservableList<Proposal> P, allProposals;
@@ -82,6 +84,7 @@ public class FXMLDocumentController implements Initializable {
         proposal_T.getSelectionModel().select(null);
     }
 
+    //tombol ubah di bawah
     @FXML
     private void handleUpdateButtonAction(ActionEvent event) {
         dataDiri_noIdentitas.setDisable(true);
@@ -102,6 +105,7 @@ public class FXMLDocumentController implements Initializable {
         }
     }
 
+    //tombol update
     @FXML
     private void handleUbahButtonAction(ActionEvent event) {
         if (updatedProposal != null) {
@@ -119,6 +123,7 @@ public class FXMLDocumentController implements Initializable {
         }
     }
 
+    //tombol clear
     @FXML
     private void handleClearButtonAction(ActionEvent event) {
         namaUkm.setText("");
@@ -133,6 +138,7 @@ public class FXMLDocumentController implements Initializable {
         updatedProposal = null;
         ubayhBeneran.setDisable(true);
     }
+
 
     @FXML
     private void handleTableClick(MouseEvent event) {

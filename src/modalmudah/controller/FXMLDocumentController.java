@@ -19,6 +19,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import modalmudah.model.Proposal;
 
@@ -59,16 +60,36 @@ public class FXMLDocumentController implements Initializable {
         //tableMahasiswa.getSelectionModel().getSelectedItem(); pilih item di table.
         try {
             dataProposal.add(new Proposal(dataDiri_noIdentitas.getText(),
-                dataDiri_nama.getText(),
-                dataDiri_alamat.getText(),
-                "0",
-                namaUkm.getText(),
-                deskripsi.getText(),
-                Integer.parseInt(jumlahModal.getText()),
-                fileProposal.getText()));
+                    dataDiri_nama.getText(),
+                    dataDiri_alamat.getText(),
+                    "0",
+                    namaUkm.getText(),
+                    deskripsi.getText(),
+                    Integer.parseInt(jumlahModal.getText()),
+                    fileProposal.getText()));
         } catch (NumberFormatException e) {
         }
-        
+
+    }
+
+    @FXML
+    private void handleHapusButtonAction(ActionEvent event) {
+        ObservableList<Proposal> P, allProposals;
+        allProposals = proposal_T.getItems();
+        P = proposal_T.getSelectionModel().getSelectedItems();
+        P.forEach(allProposals::remove);
+        proposal_T.getSelectionModel().select(null);
+    }
+
+    @FXML
+    private void handleUpdateButtonAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void handleTableClick(MouseEvent event) {
+        hapus.setDisable(false);
+        ubah.setDisable(false);
     }
 
     @Override
@@ -77,6 +98,9 @@ public class FXMLDocumentController implements Initializable {
         modalUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("jumlah_modal_UKM"));
         pemilikUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("nama"));
         proposal_T.setItems(dataProposal);
+
+        hapus.setDisable(true);
+        ubah.setDisable(true);
     }
 
 }

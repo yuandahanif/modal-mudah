@@ -7,13 +7,20 @@ package modalmudah.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import static javafx.collections.FXCollections.observableArrayList;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import modalmudah.model.Proposal;
 
 /**
  *
@@ -21,27 +28,55 @@ import javafx.scene.control.TextField;
  */
 public class FXMLDocumentController implements Initializable {
 
+    ObservableList<Proposal> dataProposal = observableArrayList(new Proposal("22", "yuanda", "Bumi", "123456", "Kisaragi", "Evil company", 200000000, "tidak ada"));
+
     @FXML
     private Label label;
+
+    @FXML
+    private TableView proposal_T;
+
+    @FXML
+    private TableColumn namaUKM_Tc;
+
+    @FXML
+    private TableColumn modalUKM_Tc;
+
+    @FXML
+    private TableColumn pemilikUKM_Tc;
 
     @FXML
     private TextField namaUkm, fileProposal, jumlahModal, dataDiri_nama, dataDiri_noIdentitas;
 
     @FXML
     private TextArea deskripsi, dataDiri_alamat;
-    
+
     @FXML
-    private Button submit;
+    private Button submit, hapus, ubah;
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
-
-        label.setText("Hello World!");
+        //tableMahasiswa.getSelectionModel().getSelectedItem(); pilih item di table.
+        try {
+            dataProposal.add(new Proposal(dataDiri_noIdentitas.getText(),
+                dataDiri_nama.getText(),
+                dataDiri_alamat.getText(),
+                "0",
+                namaUkm.getText(),
+                deskripsi.getText(),
+                Integer.parseInt(jumlahModal.getText()),
+                fileProposal.getText()));
+        } catch (NumberFormatException e) {
+        }
+        
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        namaUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("nama_UKM"));
+        modalUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("jumlah_modal_UKM"));
+        pemilikUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("nama"));
+        proposal_T.setItems(dataProposal);
     }
 
 }

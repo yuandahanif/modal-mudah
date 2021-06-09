@@ -38,11 +38,14 @@
       <TextField fx:id="dataDiri_nama" layoutX="438.0" layoutY="170.0" prefHeight="36.0" prefWidth="243.0" promptText="Nama " />
       <TextField fx:id="dataDiri_noIdentitas" layoutX="438.0" layoutY="231.0" prefHeight="36.0" prefWidth="243.0" promptText="No. Indentitas" />
       <TextArea fx:id="dataDiri_alamat" layoutX="438.0" layoutY="289.0" prefHeight="89.0" prefWidth="243.0" promptText="Alamat" />
-      <TableView layoutX="61.0" layoutY="525.0" prefHeight="200.0" prefWidth="627.0">
+      <TableView fx:id="proposal_T" layoutX="61.0" layoutY="525.0" prefHeight="200.0" prefWidth="627.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="namaUKM_Tc" prefWidth="224.0" text="Nama UKM" />
+          <TableColumn fx:id="modalUKM_Tc" prefWidth="202.0" text="Modal" />
+            <TableColumn fx:id="pemilikUKM_Tc" prefWidth="200.0" text="Pemilik" />
         </columns>
       </TableView>
+      <Button fx:id="hapus" layoutX="247.0" layoutY="743.0" mnemonicParsing="false" text="Hapus" />
+      <Button fx:id="ubah" layoutX="365.0" layoutY="743.0" mnemonicParsing="false" text="Ubah" />
     </children>
 </AnchorPane>

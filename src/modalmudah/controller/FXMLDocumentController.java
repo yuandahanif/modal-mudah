@@ -37,7 +37,7 @@ public class FXMLDocumentController implements Initializable {
     ObservableList<Proposal> dataProposal = observableArrayList(new Proposal("22", "yuanda", "Bumi", "123456", "Kisaragi", "Evil company", 200000000, "tidak ada", "Entertaiment"));
     int proposalIndex;
     Proposal updatedProposal = null;
-    Kategori[] kategori = null;
+    String[] kategori = {"Makana", "Pakaian", "Perumahan", "Jasa"};
 
     @FXML
     private Label label;
@@ -59,7 +59,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private TableColumn pemilikUKM_Tc;
-    
+
     @FXML
     private TableColumn kategori_Tc;
 
@@ -76,6 +76,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         try {
+            String ktg = kategori_Cb.getValue().toString();
             dataProposal.add(new Proposal(dataDiri_noIdentitas.getText(),
                     dataDiri_nama.getText(),
                     dataDiri_alamat.getText(),
@@ -84,7 +85,15 @@ public class FXMLDocumentController implements Initializable {
                     deskripsi.getText(),
                     Integer.parseInt(jumlahModal.getText()),
                     fileProposal.getText(),
-                    kategori_Cb.getValue().toString()));
+                    ktg));
+
+            dataProposalUntukBC.getData().forEach((XYChart.Data<String, Integer> k) -> {
+                // XValue nama/string
+                // YValue nilai/integer
+                if (ktg.equals(k.getXValue())) {
+                    k.setYValue(k.getYValue() + 1);
+                }
+            });
         } catch (NumberFormatException e) {
         }
 
@@ -96,6 +105,20 @@ public class FXMLDocumentController implements Initializable {
         ObservableList<Proposal> P, allProposals;
         allProposals = proposal_T.getItems();
         P = proposal_T.getSelectionModel().getSelectedItems();
+
+        P.forEach((p) -> {
+            dataProposalUntukBC.getData().forEach((XYChart.Data<String, Integer> k) -> {
+                // XValue nama/string
+                // YValue nilai/integer
+                if (p.getKategori().equals(k.getXValue())) {
+//                    if (k.getYValue() > 0) {
+                    System.out.println(p.getKategori());
+                    k.setYValue(k.getYValue() - 1);
+//                    }
+                }
+            });
+        });
+
         P.forEach(allProposals::remove);
         proposal_T.getSelectionModel().select(null);
     }
@@ -104,6 +127,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleUpdateButtonAction(ActionEvent event) {
         dataDiri_noIdentitas.setDisable(true);
+
         Proposal selectedP = (Proposal) proposal_T.getSelectionModel().getSelectedItem();
 
         namaUkm.setText(selectedP.getNama_UKM());
@@ -113,6 +137,9 @@ public class FXMLDocumentController implements Initializable {
         dataDiri_nama.setText(selectedP.getNama());
         dataDiri_noIdentitas.setText(selectedP.getId());
         dataDiri_alamat.setText(selectedP.getAlamat());
+
+        kategori_Cb.setValue(selectedP.getKategori());
+        kategori_Cb.setDisable(true);
 
         Proposal p = cariPropsal(selectedP);
         if (null != p) {
@@ -125,7 +152,9 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleUbahButtonAction(ActionEvent event) {
         if (updatedProposal != null) {
+            kategori_Cb.setDisable(false);
             try {
+                String kategori = kategori_Cb.getValue().toString();
                 dataProposal.set(proposalIndex, new Proposal(updatedProposal.getId(),
                         dataDiri_nama.getText(),
                         dataDiri_alamat.getText(),
@@ -134,7 +163,20 @@ public class FXMLDocumentController implements Initializable {
                         deskripsi.getText(),
                         Integer.parseInt(jumlahModal.getText()),
                         fileProposal.getText(),
-                        kategori_Cb.getValue().toString()));
+                        kategori));
+
+                kategori_Cb.setDisable(false);
+                namaUkm.setText("");
+                deskripsi.setText("");
+                jumlahModal.setText("");
+                fileProposal.setText("");
+                dataDiri_nama.setText("");
+                dataDiri_noIdentitas.setText("");
+                dataDiri_alamat.setText("");
+                dataDiri_noIdentitas.setDisable(false);
+                proposalIndex = 0;
+                updatedProposal = null;
+                ubayhBeneran.setDisable(true);
             } catch (NumberFormatException e) {
             }
         }
@@ -143,6 +185,7 @@ public class FXMLDocumentController implements Initializable {
     //tombol clear
     @FXML
     private void handleClearButtonAction(ActionEvent event) {
+        kategori_Cb.setDisable(false);
         namaUkm.setText("");
         deskripsi.setText("");
         jumlahModal.setText("");
@@ -174,12 +217,15 @@ public class FXMLDocumentController implements Initializable {
         ubah.setDisable(true);
         ubayhBeneran.setDisable(true);
 
-        kategori_Cb.getItems().addAll("Makana", "Pakaian", "Perumahan", "Jasa");
+        kategori_Cb.getItems().addAll(kategori);
 
-        dataProposal.forEach((proporsal) -> {
-            dataProposalUntukBC.getData().add(new XYChart.Data<>(proporsal.getKategori(), (int) (Math.random() * 8) + 2));
-        });
+        for (String k : kategori) {
+            dataProposalUntukBC.getData().add(new XYChart.Data<>(k, 0));
+        }
 
+//        dataProposal.forEach((proporsal) -> {
+//            dataProposalUntukBC.getData().add(new XYChart.Data<>(proporsal.getKategori(), (int) (Math.random() * 8) + 2));
+//        });
         kategori_BC.getData().add(dataProposalUntukBC);
     }
 

@@ -12,7 +12,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -29,13 +32,20 @@ import modalmudah.model.Proposal;
  */
 public class FXMLDocumentController implements Initializable {
 
+    XYChart.Series<String, Integer> dataProposalUntukBC = new XYChart.Series<>();
     ObservableList<Proposal> dataProposal = observableArrayList(new Proposal("22", "yuanda", "Bumi", "123456", "Kisaragi", "Evil company", 200000000, "tidak ada"));
     int proposalIndex;
     Proposal updatedProposal = null;
 
     @FXML
     private Label label;
+    
+    @FXML
+    private BarChart kategori_BC;
 
+    @FXML
+    private ChoiceBox kategori_Cb;
+    
     @FXML
     private TableView proposal_T;
 
@@ -156,6 +166,12 @@ public class FXMLDocumentController implements Initializable {
         hapus.setDisable(true);
         ubah.setDisable(true);
         ubayhBeneran.setDisable(true);
+        
+        kategori_Cb.getItems().addAll("Makana", "Pakaian", "Perumahan", "Jasa");
+        
+        dataProposalUntukBC.getData().add(new XYChart.Data<>("Makanan", (int) (Math.random() * 8) + 2));
+        dataProposalUntukBC.getData().add(new XYChart.Data<>("Pakaian", (int) (Math.random() * 8) + 2));
+        kategori_BC.getData().add(dataProposalUntukBC);
     }
 
     private Proposal cariPropsal(Proposal p) {

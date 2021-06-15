@@ -42,11 +42,12 @@
       <TextField fx:id="dataDiri_nama" layoutX="438.0" layoutY="170.0" prefHeight="36.0" prefWidth="243.0" promptText="Nama " />
       <TextField fx:id="dataDiri_noIdentitas" layoutX="438.0" layoutY="231.0" prefHeight="36.0" prefWidth="243.0" promptText="No. Indentitas" />
       <TextArea fx:id="dataDiri_alamat" layoutX="438.0" layoutY="289.0" prefHeight="89.0" prefWidth="243.0" promptText="Alamat" />
-      <TableView fx:id="proposal_T" layoutX="821.0" layoutY="96.0" onMouseClicked="#handleTableClick" prefHeight="200.0" prefWidth="618.0">
+      <TableView fx:id="proposal_T" layoutX="746.0" layoutY="96.0" onMouseClicked="#handleTableClick" prefHeight="200.0" prefWidth="693.0">
         <columns>
           <TableColumn fx:id="namaUKM_Tc" prefWidth="224.0" text="Nama UKM" />
             <TableColumn fx:id="pemilikUKM_Tc" prefWidth="200.0" text="Pemilik" />
-          <TableColumn fx:id="modalUKM_Tc" prefWidth="202.0" text="Modal" />
+          <TableColumn fx:id="modalUKM_Tc" prefWidth="131.0" text="Modal" />
+            <TableColumn fx:id="kategori_Tc" prefWidth="146.0" text="Kategori" />
         </columns>
       </TableView>
       <Button fx:id="hapus" layoutX="1053.0" layoutY="318.0" mnemonicParsing="false" onAction="#handleHapusButtonAction" text="Hapus" />

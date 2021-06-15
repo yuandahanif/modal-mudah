@@ -25,6 +25,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import modalmudah.model.Proposal;
+import modalmudah.model.Kategori;
 
 /**
  *
@@ -33,19 +34,20 @@ import modalmudah.model.Proposal;
 public class FXMLDocumentController implements Initializable {
 
     XYChart.Series<String, Integer> dataProposalUntukBC = new XYChart.Series<>();
-    ObservableList<Proposal> dataProposal = observableArrayList(new Proposal("22", "yuanda", "Bumi", "123456", "Kisaragi", "Evil company", 200000000, "tidak ada"));
+    ObservableList<Proposal> dataProposal = observableArrayList(new Proposal("22", "yuanda", "Bumi", "123456", "Kisaragi", "Evil company", 200000000, "tidak ada", "Entertaiment"));
     int proposalIndex;
     Proposal updatedProposal = null;
+    Kategori[] kategori = null;
 
     @FXML
     private Label label;
-    
+
     @FXML
     private BarChart kategori_BC;
 
     @FXML
     private ChoiceBox kategori_Cb;
-    
+
     @FXML
     private TableView proposal_T;
 
@@ -57,6 +59,9 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private TableColumn pemilikUKM_Tc;
+    
+    @FXML
+    private TableColumn kategori_Tc;
 
     @FXML
     private TextField namaUkm, fileProposal, jumlahModal, dataDiri_nama, dataDiri_noIdentitas;
@@ -78,7 +83,8 @@ public class FXMLDocumentController implements Initializable {
                     namaUkm.getText(),
                     deskripsi.getText(),
                     Integer.parseInt(jumlahModal.getText()),
-                    fileProposal.getText()));
+                    fileProposal.getText(),
+                    kategori_Cb.getValue().toString()));
         } catch (NumberFormatException e) {
         }
 
@@ -127,7 +133,8 @@ public class FXMLDocumentController implements Initializable {
                         namaUkm.getText(),
                         deskripsi.getText(),
                         Integer.parseInt(jumlahModal.getText()),
-                        fileProposal.getText()));
+                        fileProposal.getText(),
+                        kategori_Cb.getValue().toString()));
             } catch (NumberFormatException e) {
             }
         }
@@ -149,7 +156,6 @@ public class FXMLDocumentController implements Initializable {
         ubayhBeneran.setDisable(true);
     }
 
-
     @FXML
     private void handleTableClick(MouseEvent event) {
         hapus.setDisable(false);
@@ -161,16 +167,19 @@ public class FXMLDocumentController implements Initializable {
         namaUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("nama_UKM"));
         modalUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("jumlah_modal_UKM"));
         pemilikUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("nama"));
+        kategori_Tc.setCellValueFactory(new PropertyValueFactory<>("kategori"));
         proposal_T.setItems(dataProposal);
 
         hapus.setDisable(true);
         ubah.setDisable(true);
         ubayhBeneran.setDisable(true);
-        
+
         kategori_Cb.getItems().addAll("Makana", "Pakaian", "Perumahan", "Jasa");
-        
-        dataProposalUntukBC.getData().add(new XYChart.Data<>("Makanan", (int) (Math.random() * 8) + 2));
-        dataProposalUntukBC.getData().add(new XYChart.Data<>("Pakaian", (int) (Math.random() * 8) + 2));
+
+        dataProposal.forEach((proporsal) -> {
+            dataProposalUntukBC.getData().add(new XYChart.Data<>(proporsal.getKategori(), (int) (Math.random() * 8) + 2));
+        });
+
         kategori_BC.getData().add(dataProposalUntukBC);
     }
 

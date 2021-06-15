@@ -20,8 +20,9 @@ public class Proposal {
     private String deskripsi_UKM;
     private Integer jumlah_modal_UKM;
     private String file_UKM;
+    private String kategori;
 
-    public Proposal(String id, String nama, String alamat, String kontak, String nama_UKM, String deskripsi_UKM, Integer jumlah_modal_UKM, String file_UKM) {
+    public Proposal(String id, String nama, String alamat, String kontak, String nama_UKM, String deskripsi_UKM, Integer jumlah_modal_UKM, String file_UKM, String kategori) {
         this.id = id;
         this.nama = nama;
         this.alamat = alamat;
@@ -30,6 +31,7 @@ public class Proposal {
         this.deskripsi_UKM = deskripsi_UKM;
         this.jumlah_modal_UKM = jumlah_modal_UKM;
         this.file_UKM = file_UKM;
+        this.kategori = kategori;
     }
 
     public Proposal() {
@@ -94,6 +96,10 @@ public class Proposal {
 
     public void setFile_UKM(String file_UKM) {
         this.file_UKM = file_UKM;
+    }
+
+    public String getKategori() {
+        return kategori;
     }
 
 }

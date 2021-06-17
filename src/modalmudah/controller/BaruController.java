@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modalmudah.view;
+package modalmudah.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,11 +19,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+
+import modalmudah.model.Proposal;
 /**
  *
  * @author user
  */
-public class FXMLDocumentController implements Initializable {
+public class BaruController implements Initializable {
 
     XYChart.Series<String, Integer> dataProposalUntukBC = new XYChart.Series<>();
     ObservableList<Proposal> dataProposal = observableArrayList(new Proposal("22", "yuanda", "Bumi", "123456", "Kisaragi", "Evil company", 200000000, "tidak ada", "Entertaiment"));

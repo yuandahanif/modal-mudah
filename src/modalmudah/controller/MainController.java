@@ -15,15 +15,16 @@ import modalmudah.helper.OpenScene;
  *
  * @author user
  */
-public class FXMLController {
-    
+public class MainController {
+
+    OpenScene OS = new OpenScene();
+
     @FXML
     private BorderPane mainPane;
-    
+
     @FXML
     private void daftarProposal(ActionEvent event) {
-        OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("hal_BuatProposal");
+        Pane halaman = OS.getPane("create_proposal_view");
         mainPane.setCenter(halaman);
     }
 }

@@ -19,7 +19,7 @@ public class ModalMudah extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("view/hal_Main_1.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/main_view.fxml"));
         
         Scene scene = new Scene(root);
         

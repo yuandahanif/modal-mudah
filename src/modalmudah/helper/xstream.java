@@ -20,14 +20,14 @@ public class xstream<E> {
 
     private final XStream xstream = new XStream(new StaxDriver());
     private final String namaFileXml;
-    private Object data;
+    private E data;
 
     public xstream(String namaFileXml, E data) {
         this.namaFileXml = namaFileXml;
         this.data = data;
     }
 
-    private void loadXml() {
+    private E loadXml() {
         FileInputStream fileXml = null;
         try {
             // nama file yang akan dibuka (termasuk folder jika perlu
@@ -56,6 +56,7 @@ public class xstream<E> {
                 }
             }
         }
+        return data;
     }
 
     private void saveToXML(E data) {

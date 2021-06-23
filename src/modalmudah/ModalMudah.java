@@ -16,14 +16,15 @@ import javafx.stage.Stage;
  * @author yuan
  */
 public class ModalMudah extends Application {
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("view/main_view.fxml"));
-        
+
         Scene scene = new Scene(root);
-        
+
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -33,5 +34,5 @@ public class ModalMudah extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

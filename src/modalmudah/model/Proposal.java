@@ -15,14 +15,13 @@ public class Proposal {
     private String nama;
     private String alamat;
     private String kontak;
-
     private String nama_UKM;
     private String deskripsi_UKM;
     private Integer jumlah_modal_UKM;
-    private String file_UKM;
-    private String kategori;
+    private Kategori kategori;
+    public static final String XML_FILE_NAME = "proposal_data";
 
-    public Proposal(String id, String nama, String alamat, String kontak, String nama_UKM, String deskripsi_UKM, Integer jumlah_modal_UKM, String file_UKM, String kategori) {
+    public Proposal(String id, String nama, String alamat, String kontak, String nama_UKM, String deskripsi_UKM, Integer jumlah_modal_UKM, Kategori kategori) {
         this.id = id;
         this.nama = nama;
         this.alamat = alamat;
@@ -30,7 +29,6 @@ public class Proposal {
         this.nama_UKM = nama_UKM;
         this.deskripsi_UKM = deskripsi_UKM;
         this.jumlah_modal_UKM = jumlah_modal_UKM;
-        this.file_UKM = file_UKM;
         this.kategori = kategori;
     }
 
@@ -90,15 +88,7 @@ public class Proposal {
         this.jumlah_modal_UKM = jumlah_modal_UKM;
     }
 
-    public String getFile_UKM() {
-        return file_UKM;
-    }
-
-    public void setFile_UKM(String file_UKM) {
-        this.file_UKM = file_UKM;
-    }
-
-    public String getKategori() {
+    public Kategori getKategori() {
         return kategori;
     }
 

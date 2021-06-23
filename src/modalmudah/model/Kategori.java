@@ -5,11 +5,15 @@
  */
 package modalmudah.model;
 
+
 /**
  *
  * @author yuan
  */
-public class Kategori {
-    private String name;
-    private Integer amount;
+public enum Kategori {
+    Makanan,
+    Pakaian,
+    Hiburan,
+    Transportasi,
+    Jasa
 }

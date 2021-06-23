@@ -27,7 +27,7 @@ public class xstream<E> {
         this.data = data;
     }
 
-    private E loadXml() {
+    public E loadXml() {
         FileInputStream fileXml = null;
         try {
             // nama file yang akan dibuka (termasuk folder jika perlu
@@ -59,7 +59,7 @@ public class xstream<E> {
         return data;
     }
 
-    private void saveToXML(E data) {
+    public void saveToXML(E data) {
 
         // larik double diubah menjadi string dengan format XML
         String xml = xstream.toXML(data);

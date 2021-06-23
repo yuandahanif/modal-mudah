@@ -7,5 +7,7 @@
 }
 
 .nav {
-    -fx-background-color: lightsalmon;
+    -fx-background-color: #B38867;
+    /*-fx-background-color: #90AFC5;
+    -fx-background-color: lightsalmon;*/
 }

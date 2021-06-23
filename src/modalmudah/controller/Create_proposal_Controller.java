@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
@@ -27,9 +28,9 @@ import modalmudah.model.Proposal;
  */
 public class Create_proposal_Controller implements Initializable {
 
+    Alert warning = new Alert(Alert.AlertType.WARNING);
     private xstream<ArrayList<Proposal>> dataXml;
     private ArrayList<Proposal> proposalArray;
-    private Proposal proposal;
 
     @FXML
     private ChoiceBox cb_kategori;
@@ -42,6 +43,16 @@ public class Create_proposal_Controller implements Initializable {
 
     @FXML
     private Button b_submit, b_clear;
+
+    private void clearFormInput() {
+        tf_dataDiri_noIdentitas.setText("");
+        tf_dataDiri_nama.setText("");
+        ta_dataDiri_alamat.setText("");
+        tf_dataDiri_kontak.setText("");
+        tf_ukm_nama.setText("");
+        ta_ukm_deskripsi.setText("");
+        tf_ukm_jumlah_modal.setText("");
+    }
 
     @FXML
     private void handleSubmitButtonAction(ActionEvent event) {
@@ -56,26 +67,16 @@ public class Create_proposal_Controller implements Initializable {
                     Integer.parseInt(tf_ukm_jumlah_modal.getText()),
                     ktg));
             dataXml.saveToXML(proposalArray);
+            clearFormInput();
         } catch (NumberFormatException e) {
-
+            warning.setTitle("jumlah modal harus angka!!!");
         }
-        System.out.println(proposalArray.toString());
     }
 
     @FXML
     private void handleClearButtonAction(ActionEvent event) {
-//        kategori_Cb.setDisable(false);
-//        namaUkm.setText("");
-//        deskripsi.setText("");
-//        jumlahModal.setText("");
-//        fileProposal.setText("");
-//        dataDiri_nama.setText("");
-//        dataDiri_noIdentitas.setText("");
-//        dataDiri_alamat.setText("");
-//        dataDiri_noIdentitas.setDisable(false);
-//        proposalIndex = 0;
-//        updatedProposal = null;
-//        ubayhBeneran.setDisable(true);
+        clearFormInput();
+        b_clear.setDisable(true);
     }
 
     /**
@@ -91,7 +92,6 @@ public class Create_proposal_Controller implements Initializable {
         proposalArray = new ArrayList<>();
         dataXml = new xstream(Proposal.XML_FILE_NAME, proposalArray);
         proposalArray = dataXml.loadXml();
-        System.out.println(proposalArray.toString());
     }
 
 }

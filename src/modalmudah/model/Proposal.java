@@ -88,8 +88,8 @@ public class Proposal {
         this.jumlah_modal_UKM = jumlah_modal_UKM;
     }
 
-    public Kategori getKategori() {
-        return kategori;
+    public String getKategori() {
+        return kategori.toString();
     }
 
 }

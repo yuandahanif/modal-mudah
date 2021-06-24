@@ -74,11 +74,10 @@ public class Grafik_proposal_Controller implements Initializable {
         }
 
         proposalArray.forEach((Proposal proporsal) -> {
-            System.out.println(String.valueOf(proporsal.getKategori()));
             data_chart_proposal.getData().forEach((XYChart.Data<String, Integer> k) -> {
 //                XValue nama
 //                /string YValue nilai / integer
-                if (String.valueOf(proporsal.getKategori()).equals(k.getXValue())) {
+                if (proporsal.getKategori().equals(k.getXValue())) {
                     k.setYValue(k.getYValue() + 1);
                 }
             });

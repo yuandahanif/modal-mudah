@@ -23,13 +23,16 @@ public class OpenScene {
         try {
             URL fileView = modalmudah.ModalMudah.class.getResource("/modalmudah/view/" + filename + ".fxml");
 
+            System.out.println(fileView.toString());
             if (fileView == null) {
                 throw new java.io.FileNotFoundException("File halaman tidak ditemukan");
             }
 
             halaman = FXMLLoader.load(fileView);
+            System.out.println(halaman.toString());
         } catch (IOException e) {
             System.out.println("Tidak ditemukan halaman tersebut");
+            System.out.println(e.toString());
         }
 
         return halaman;

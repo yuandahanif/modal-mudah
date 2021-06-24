@@ -21,12 +21,12 @@
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label prefHeight="41.0" prefWidth="87.0" text=" Modal" textAlignment="CENTER" textFill="WHITE">
+                              <Label prefHeight="41.0" prefWidth="87.0" style="-fx-background-color: lightgrey;" text=" Modal" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Segoe UI" size="23.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="80.0" prefHeight="41.0" prefWidth="106.0" text="Mudah" textAlignment="CENTER" textFill="WHITE">
+                              <Label layoutX="80.0" prefHeight="41.0" prefWidth="106.0" style="-fx-background-color: #DDBC95;" text="Mudah" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Swis721 BlkCn BT Black" size="23.0" />
                                  </font>
@@ -53,11 +53,6 @@
                               <Font name="Segoe UI Bold" size="17.0" />
                            </font>
                         </Button>
-                        <ImageView fitHeight="41.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: #FFA500;">
-                           <image>
-                              <Image url="@../assets/980ebfc20f987703e3c56aee0c1e071a.jpg" />
-                           </image>
-                        </ImageView>
                         <Button mnemonicParsing="false" onAction="#grafikProposal" prefHeight="41.0" prefWidth="207.0" style="-fx-background-color: #DDBC95;" text="Statistik" textFill="#fcfafa">
                            <font>
                               <Font name="Segoe UI Bold" size="19.0" />

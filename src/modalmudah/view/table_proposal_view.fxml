@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modalmudah.controller.TableView_proposal_Controller">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modalmudah.controller.TableView_proposal_Controller">
     <stylesheets>
         <URL value="@/modalmudah/css/main.css" />
     </stylesheets>
@@ -18,7 +18,7 @@
             <Font name="Segoe UI Bold" size="14.0" />
          </font>
       </Label>
-      <TableView fx:id="proposal_T" layoutX="63.0" layoutY="90.0" prefHeight="306.0" prefWidth="1058.0">
+      <TableView fx:id="proposal_T" layoutX="63.0" layoutY="90.0" onMouseClicked="#handleTableClick" prefHeight="306.0" prefWidth="1058.0">
          <columns>
             <TableColumn fx:id="namaUKM_Tc" prefWidth="267.0" text="Nama UKM" />
             <TableColumn fx:id="pemilikUKM_Tc" prefWidth="258.0" text="Pemilik" />

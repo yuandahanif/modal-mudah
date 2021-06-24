@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import modalmudah.helper.xstream;
 import modalmudah.model.Proposal;
 
@@ -55,7 +56,24 @@ public class TableView_proposal_Controller implements Initializable {
         } catch (NumberFormatException e) {
         }
     }
-
+    
+    @FXML
+    private void handleTableClick(MouseEvent event) {
+        hapus.setDisable(false);
+        ubah.setDisable(false);
+    }
+    
+    //tombol hapus
+    @FXML
+    private void handleHapusButtonAction(ActionEvent event) {
+        ObservableList<Proposal> P, allProposals;
+        allProposals = proposal_T.getItems();
+        P = proposal_T.getSelectionModel().getSelectedItems();
+        
+        P.forEach(allProposals::remove);
+        proposal_T.getSelectionModel().select(null);
+    }
+    
     /**
      * Initializes the controller class.
      *

@@ -70,8 +70,13 @@ public class TableView_proposal_Controller implements Initializable {
         allProposals = proposal_T.getItems();
         P = proposal_T.getSelectionModel().getSelectedItems();
         
+        // hapus daryi tabel
         P.forEach(allProposals::remove);
         proposal_T.getSelectionModel().select(null);
+        
+        // save to xml
+        ArrayList<Proposal> dataProposalbaru = new ArrayList<>(allProposals);
+        dataXml.saveToXML(dataProposalbaru);
     }
     
     /**
@@ -86,7 +91,6 @@ public class TableView_proposal_Controller implements Initializable {
         dataXml = new xstream(Proposal.XML_FILE_NAME, proposalArray);
         proposalArray = dataXml.loadXml();
         dataProposal = observableArrayList(proposalArray);
-        System.out.println(dataProposal.toString());
 
         namaUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("nama_UKM"));
         modalUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("jumlah_modal_UKM"));

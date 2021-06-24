@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modalmudah.controller.TableView_proposal_Controller">
+    <stylesheets>
+        <URL value="@/modalmudah/css/main.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="520.0" layoutY="44.0" minHeight="16" minWidth="69" styleClass="form__title" stylesheets="@../css/main.css" text="Detail Proposal">
+         <font>
+            <Font name="Segoe UI Bold" size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="proposal_T" layoutX="63.0" layoutY="90.0" prefHeight="306.0" prefWidth="1058.0">
+         <columns>
+            <TableColumn fx:id="namaUKM_Tc" prefWidth="267.0" text="Nama UKM" />
+            <TableColumn fx:id="pemilikUKM_Tc" prefWidth="258.0" text="Pemilik" />
+            <TableColumn fx:id="modalUKM_Tc" prefWidth="282.0" text="Modal" />
+            <TableColumn fx:id="kategori_Tc" prefWidth="250.0" text="Kategori" />
+         </columns>
+      </TableView>
+      <Button fx:id="hapus" layoutX="462.0" layoutY="428.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="83.0" text="Hapus" />
+      <Button fx:id="ubah" layoutX="720.0" layoutY="428.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="83.0" text="Ubah" />
+   </children>
+</AnchorPane>

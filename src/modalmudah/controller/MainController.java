@@ -33,4 +33,10 @@ public class MainController {
         Pane halaman = OS.getPane("grafik_proposal_view");
         mainPane.setCenter(halaman);
     }
+    
+    @FXML
+    private void tableProposal(ActionEvent event) {
+        Pane halaman = OS.getPane("table_proposal_view");
+        mainPane.setCenter(halaman);
+    }     
 }

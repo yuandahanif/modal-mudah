@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -20,8 +21,16 @@
             <Font name="Segoe UI Bold" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="b_submit" layoutX="503.0" layoutY="450.0" onAction="#handleSubmitButtonAction" prefHeight="36.0" prefWidth="87.0" styleClass="form__button" stylesheets="@../css/main.css" text="Submit" />
-      <Button fx:id="b_clear" layoutX="610.0" layoutY="450.0" onAction="#handleClearButtonAction" prefHeight="36.0" prefWidth="87.0" styleClass="form__button" stylesheets="@../css/main.css" text="clear" />
+      <Button fx:id="b_submit" layoutX="519.0" layoutY="450.0" onAction="#handleSubmitButtonAction" prefHeight="36.0" prefWidth="87.0" stylesheets="@../css/main.css" text="Submit">
+         <styleClass>
+            <String fx:value="form__button" />
+            <String fx:value="form__button--submit" />
+         </styleClass></Button>
+      <Button fx:id="b_clear" layoutX="626.0" layoutY="450.0" onAction="#handleClearButtonAction" prefHeight="36.0" prefWidth="87.0" stylesheets="@../css/main.css" text="clear">
+         <styleClass>
+            <String fx:value="form__button" />
+            <String fx:value="form__button--clear" />
+         </styleClass></Button>
       <VBox layoutX="302.0" layoutY="81.0" prefHeight="280.0" prefWidth="280.0" spacing="10.0">
          <children>
             <Label alignment="CENTER" minHeight="16" minWidth="69" prefHeight="29.0" prefWidth="280.0" styleClass="form__sub__title" stylesheets="@../css/main.css" text="Data UKM" textAlignment="CENTER">
@@ -57,7 +66,7 @@
       </VBox>
       <VBox layoutX="702.0" layoutY="81.0" prefHeight="280.0" prefWidth="280.0" spacing="10.0">
          <children>
-            <Label alignment="CENTER" minHeight="16" minWidth="69" prefHeight="18.0" prefWidth="283.0" styleClass="form__sub__title" stylesheets="@../css/main.css" text="DATA DIRI" textAlignment="CENTER">
+            <Label alignment="CENTER" minHeight="16" minWidth="69" prefHeight="18.0" prefWidth="283.0" styleClass="form__sub__title" stylesheets="@../css/main.css" text="Data Diri" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Bold" size="14.0" />
                </font>

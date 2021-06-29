@@ -17,15 +17,17 @@
 .form__title {
     -fx-font-size: 18;
     -fx-font-weight: bold;
+    -fx-min-height: 20;
 }
 
 .form__sub__title {
     -fx-font-size: 16;
     -fx-font-weight: bold;
+    -fx-min-height: 20;
 }
 
 .form__label {
-    
+
 }
 
 .form__textarea {
@@ -36,6 +38,26 @@
     -fx-min-height: 36;
 }
 
+/*form button*/
 .form__button {
-    
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.form__button:hover {
+    -fx-cursor: hand;
+}
+
+.form__button--submit {
+    -fx-background-color: lime;
+    /*-fx-font-size: 14;*/
+}
+.form__button--submit:hover {
+    -fx-background-color: limegreen;
+}
+
+.form__button--clear {
+    -fx-background-color: gray;
+}
+.form__button--clear:hover {
+    -fx-background-color: darkgray;
 }

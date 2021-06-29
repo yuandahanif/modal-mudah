@@ -27,6 +27,6 @@
          </columns>
       </TableView>
       <Button fx:id="hapus" layoutX="462.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleHapusButtonAction" prefHeight="39.0" prefWidth="83.0" text="Hapus" />
-      <Button fx:id="ubah" layoutX="720.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="39.0" prefWidth="83.0" text="Ubah" />
+      <Button fx:id="ubah" layoutX="720.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleUpdateAction" prefHeight="39.0" prefWidth="83.0" text="Ubah" />
    </children>
 </AnchorPane>

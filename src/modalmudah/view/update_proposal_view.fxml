@@ -10,18 +10,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modalmudah.controller.Create_proposal_Controller">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@/modalmudah/css/main.css" />
     </stylesheets>
    <children>
-      <Label layoutX="533.0" layoutY="38.0" minHeight="16" minWidth="69" styleClass="form__title" stylesheets="@../css/main.css" text="Ajukan Proposal">
+      <Label layoutX="536.0" layoutY="35.0" minHeight="16" minWidth="69" styleClass="form__title" stylesheets="@../css/main.css" text="Ubah Proposal">
          <font>
             <Font name="Segoe UI Bold" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="b_submit" layoutX="503.0" layoutY="450.0" onAction="#handleSubmitButtonAction" prefHeight="36.0" prefWidth="87.0" styleClass="form__button" stylesheets="@../css/main.css" text="Submit" />
-      <Button fx:id="b_clear" layoutX="610.0" layoutY="450.0" onAction="#handleClearButtonAction" prefHeight="36.0" prefWidth="87.0" styleClass="form__button" stylesheets="@../css/main.css" text="clear" />
+      <Button fx:id="b_submit" layoutX="513.0" layoutY="450.0" prefHeight="36.0" prefWidth="87.0" styleClass="form__button" stylesheets="@../css/main.css" text="Submit" />
+      <Button fx:id="b_clear" layoutX="620.0" layoutY="450.0" prefHeight="36.0" prefWidth="87.0" styleClass="form__button" stylesheets="@../css/main.css" text="clear" />
       <VBox layoutX="302.0" layoutY="81.0" prefHeight="280.0" prefWidth="280.0" spacing="10.0">
          <children>
             <Label alignment="CENTER" minHeight="16" minWidth="69" prefHeight="29.0" prefWidth="280.0" styleClass="form__sub__title" stylesheets="@../css/main.css" text="Data UKM" textAlignment="CENTER">

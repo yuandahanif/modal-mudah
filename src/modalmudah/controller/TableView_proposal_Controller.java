@@ -74,35 +74,59 @@ public class TableView_proposal_Controller implements Initializable {
     }
 
     @FXML
-    private void handleLoginAction(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(modalmudah.ModalMudah.class.getResource("/modalmudah/view/" + "update_proposal_view.fxml"));
-        //Praktikum1 diganti dengan nama file controller untuk FXML yang kedua
-        // FXML2 diganti dengan FXML yang kedua
+    private void handleUpdateAction(ActionEvent event) throws IOException {
+        try {
+            // do something with selected proosal
+            int selectedIndex;
+            Proposal selectedProposal;
+            selectedProposal = (Proposal) proposal_T.getSelectionModel().getSelectedItem();
+            selectedIndex = proposal_T.getSelectionModel().getSelectedIndex();
 
-        Stage dialogStage = new Stage();
-        dialogStage.setTitle("testing");
-        dialogStage.initModality(Modality.APPLICATION_MODAL);
-        Scene scene = new Scene(loader.load());
-        dialogStage.setScene(scene);
-        // Show the dialog and wait until the user closes it
-        dialogStage.showAndWait();
+            // deselect proposal
+            proposal_T.getSelectionModel().select(null);
+            hapus.setDisable(true);
+            ubah.setDisable(true);
+
+            // send selected proposal to update view
+            Window2_update_Controller controller = new Window2_update_Controller();
+            controller.setProposalArrayList(proposalArray);
+            controller.setProposal(selectedProposal, selectedIndex);
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(modalmudah.ModalMudah.class.getResource("/modalmudah/view/" + "update_proposal_view.fxml"));
+
+            loader.setController(controller);
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Update Proposal");
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(loader.load());
+            dialogStage.setScene(scene);
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            System.err.println(String.format("Error: %s", e.getMessage()));
+        }
+
     }
 
     //tombol hapus
     @FXML
     private void handleHapusButtonAction(ActionEvent event) {
-        ObservableList<Proposal> P, allProposals;
+        ObservableList<Proposal> selectedProposal, allProposals;
         allProposals = proposal_T.getItems();
-        P = proposal_T.getSelectionModel().getSelectedItems();
+        selectedProposal = proposal_T.getSelectionModel().getSelectedItems();
 
         // hapus dari tabel
-        P.forEach(allProposals::remove);
+        selectedProposal.forEach(allProposals::remove);
         proposal_T.getSelectionModel().select(null);
 
         // save to xml
         ArrayList<Proposal> dataProposalbaru = new ArrayList<>(allProposals);
         dataXml.saveToXML(dataProposalbaru);
+
+        hapus.setDisable(true);
+        ubah.setDisable(true);
     }
 
     /**

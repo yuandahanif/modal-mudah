@@ -56,27 +56,45 @@ public class Create_proposal_Controller implements Initializable {
 
     @FXML
     private void handleSubmitButtonAction(ActionEvent event) {
-        try {
-            Kategori ktg = Kategori.valueOf(cb_kategori.getValue().toString());
-            proposalArray.add(new Proposal(tf_dataDiri_noIdentitas.getText(),
-                    tf_dataDiri_nama.getText(),
-                    ta_dataDiri_alamat.getText(),
-                    tf_dataDiri_kontak.getText(),
-                    tf_ukm_nama.getText(),
-                    ta_ukm_deskripsi.getText(),
-                    Integer.parseInt(tf_ukm_jumlah_modal.getText()),
-                    ktg));
-            dataXml.saveToXML(proposalArray);
-            clearFormInput();
-        } catch (NumberFormatException e) {
-            warning.setTitle("jumlah modal harus angka!!!");
+        if (cb_kategori.getValue() == null) {
+            warning.setContentText("Kategori tidak boleh kosong");
+            warning.showAndWait();
+        } else {
+            // validasi
+            if (notEmptyValue(tf_dataDiri_noIdentitas.getText()) && notEmptyValue(tf_dataDiri_nama.getText()) && notEmptyValue(tf_ukm_nama.getText())) {
+                try {
+                    Kategori ktg = Kategori.valueOf(cb_kategori.getValue().toString());
+                    proposalArray.add(new Proposal(tf_dataDiri_noIdentitas.getText(),
+                            tf_dataDiri_nama.getText(),
+                            ta_dataDiri_alamat.getText(),
+                            tf_dataDiri_kontak.getText(),
+                            tf_ukm_nama.getText(),
+                            ta_ukm_deskripsi.getText(),
+                            Integer.parseInt(tf_ukm_jumlah_modal.getText()),
+                            ktg));
+                    dataXml.saveToXML(proposalArray);
+                    clearFormInput();
+                } catch (NumberFormatException e) {
+                    warning.setContentText("Modal harus angka");
+                    warning.showAndWait();
+                }
+            } else {
+                warning.setContentText("Semua input harus diisi.");
+                warning.showAndWait();
+            }
+
         }
+
     }
 
     @FXML
     private void handleClearButtonAction(ActionEvent event) {
         clearFormInput();
         b_clear.setDisable(true);
+    }
+
+    private boolean notEmptyValue(String input) {
+        return !input.equals("");
     }
 
     /**
@@ -87,6 +105,7 @@ public class Create_proposal_Controller implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        warning.setTitle("Input error");
         cb_kategori.getItems().addAll(Arrays.asList(Kategori.values()));
 
         proposalArray = new ArrayList<>();

@@ -28,12 +28,18 @@
             <TableColumn fx:id="kategori_Tc" prefWidth="250.0" text="Kategori" />
          </columns>
       </TableView>
-      <HBox alignment="CENTER" layoutX="444.0" layoutY="426.0" prefHeight="39.0" prefWidth="312.0" spacing="24.0">
+      <HBox alignment="CENTER" layoutX="367.0" layoutY="425.0" prefHeight="39.0" prefWidth="451.0" spacing="24.0">
          <children>
             <Button fx:id="hapus" mnemonicParsing="false" onAction="#handleHapusButtonAction" prefHeight="39.0" stylesheets="@../css/main.css" text="Hapus">
                <styleClass>
                   <String fx:value="action__button" />
                   <String fx:value="action__button--delete" />
+               </styleClass>
+            </Button>
+            <Button fx:id="b_refresh" mnemonicParsing="false" onAction="#handleRefreshAction" prefHeight="39.0" stylesheets="@../css/main.css" text="Muat Ulang">
+               <styleClass>
+                  <String fx:value="action__button" />
+                  <String fx:value="action__button--refresh" />
                </styleClass>
             </Button>
             <Button fx:id="ubah" mnemonicParsing="false" onAction="#handleUpdateAction" prefHeight="39.0" stylesheets="@../css/main.css" text="Ubah">

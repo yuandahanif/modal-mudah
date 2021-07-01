@@ -61,10 +61,16 @@ public class TableView_proposal_Controller implements Initializable {
     private Button hapus;
     @FXML
     private Button ubah;
+    @FXML
+    private Button b_refresh;
 
-    //    @FXML
-    private void handleButtonAction(ActionEvent event) {
+    @FXML
+    private void handleRefreshAction(ActionEvent event) {
         try {
+            System.out.println("refresh");
+            proposalArray = dataXml.loadXml();
+            dataProposal = observableArrayList(proposalArray);
+            proposal_T.setItems(dataProposal);
         } catch (NumberFormatException e) {
         }
     }
@@ -142,6 +148,7 @@ public class TableView_proposal_Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         hapus.setGraphic(new ImageView(ImageHelper.getImage("trash.png")));
         ubah.setGraphic(new ImageView(ImageHelper.getImage("pen.png")));
+        b_refresh.setGraphic(new ImageView(ImageHelper.getImage("refresh.png")));
 
         dataXml = new xstream(Proposal.XML_FILE_NAME, proposalArray);
         proposalArray = dataXml.loadXml();

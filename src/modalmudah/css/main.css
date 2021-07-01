@@ -69,3 +69,7 @@
 .action__button--edit {
     -fx-background-color: blue;
 }
+
+.action__button--refresh {
+    -fx-background-color: aquamarine;
+}

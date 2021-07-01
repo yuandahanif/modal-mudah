@@ -77,7 +77,7 @@ public class Create_proposal_Controller implements Initializable {
                     dataXml.saveToXML(proposalArray);
                     clearFormInput();
                 } catch (NumberFormatException e) {
-                    warning.setContentText("Modal harus angka");
+                    warning.setContentText("Jumlah modal harus angka");
                     warning.showAndWait();
                 }
             } else {

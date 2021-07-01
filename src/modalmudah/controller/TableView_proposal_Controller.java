@@ -30,6 +30,7 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import modalmudah.helper.ImageHelper;
 
@@ -40,6 +41,7 @@ import modalmudah.helper.ImageHelper;
  */
 public class TableView_proposal_Controller implements Initializable {
 
+    Alert warning = new Alert(Alert.AlertType.WARNING);
     private ArrayList<Proposal> proposalArray;
     private xstream<ArrayList<Proposal>> dataXml;
     ObservableList<Proposal> dataProposal;
@@ -67,7 +69,9 @@ public class TableView_proposal_Controller implements Initializable {
     @FXML
     private void handleRefreshAction(ActionEvent event) {
         try {
-            System.out.println("refresh");
+            hapus.setDisable(true);
+            ubah.setDisable(true);
+
             proposalArray = dataXml.loadXml();
             dataProposal = observableArrayList(proposalArray);
             proposal_T.setItems(dataProposal);
@@ -90,29 +94,35 @@ public class TableView_proposal_Controller implements Initializable {
             selectedProposal = (Proposal) proposal_T.getSelectionModel().getSelectedItem();
             selectedIndex = proposal_T.getSelectionModel().getSelectedIndex();
 
-            // deselect proposal
-            proposal_T.getSelectionModel().select(null);
-            hapus.setDisable(true);
-            ubah.setDisable(true);
+            if (selectedProposal != null) {
+                // deselect proposal
+                proposal_T.getSelectionModel().select(null);
+                hapus.setDisable(true);
+                ubah.setDisable(true);
 
-            // send selected proposal to update view
-            Window2_update_Controller controller = new Window2_update_Controller();
-            controller.setProposalArrayList(proposalArray);
-            controller.setDataXml(dataXml);
-            controller.setProposal(selectedProposal, selectedIndex);
+                // send selected proposal to update view
+                Window2_update_Controller controller = new Window2_update_Controller();
+                controller.setProposalArrayList(proposalArray);
+                controller.setDataXml(dataXml);
+                controller.setProposal(selectedProposal, selectedIndex);
 
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(modalmudah.ModalMudah.class.getResource("/modalmudah/view/" + "update_proposal_view.fxml"));
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(modalmudah.ModalMudah.class.getResource("/modalmudah/view/" + "update_proposal_view.fxml"));
 
-            loader.setController(controller);
+                loader.setController(controller);
 
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Update Proposal");
-            dialogStage.initModality(Modality.APPLICATION_MODAL);
-            Scene scene = new Scene(loader.load());
-            dialogStage.setScene(scene);
-            // Show the dialog and wait until the user closes it
-            dialogStage.showAndWait();
+                Stage dialogStage = new Stage();
+                dialogStage.setTitle("Update Proposal");
+                dialogStage.initModality(Modality.APPLICATION_MODAL);
+                Scene scene = new Scene(loader.load());
+                dialogStage.setScene(scene);
+                // Show the dialog and wait until the user closes it
+                dialogStage.showAndWait();
+            } else {
+                warning.setContentText("Tidak ada data di tabel yang dipilih.");
+                warning.showAndWait();
+            }
+
         } catch (IOException e) {
             System.err.println(String.format("Error: %s", e.getMessage()));
         }
@@ -126,9 +136,14 @@ public class TableView_proposal_Controller implements Initializable {
         allProposals = proposal_T.getItems();
         selectedProposal = proposal_T.getSelectionModel().getSelectedItems();
 
-        // hapus dari tabel
-        selectedProposal.forEach(allProposals::remove);
-        proposal_T.getSelectionModel().select(null);
+        if (selectedProposal.size() > 0) {
+            // hapus dari tabel
+            selectedProposal.forEach(allProposals::remove);
+            proposal_T.getSelectionModel().select(null);
+        } else {
+            warning.setContentText("Tidak ada data di tabel yang dipilih.");
+            warning.showAndWait();
+        }
 
         // save to xml
         ArrayList<Proposal> dataProposalbaru = new ArrayList<>(allProposals);
@@ -146,6 +161,11 @@ public class TableView_proposal_Controller implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        warning.setTitle("Tabel");
+
+        hapus.setDisable(true);
+        ubah.setDisable(true);
+
         hapus.setGraphic(new ImageView(ImageHelper.getImage("trash.png")));
         ubah.setGraphic(new ImageView(ImageHelper.getImage("pen.png")));
         b_refresh.setGraphic(new ImageView(ImageHelper.getImage("refresh.png")));

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modalmudah.controller.TableView_proposal_Controller">
@@ -26,7 +28,21 @@
             <TableColumn fx:id="kategori_Tc" prefWidth="250.0" text="Kategori" />
          </columns>
       </TableView>
-      <Button fx:id="hapus" layoutX="462.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleHapusButtonAction" prefHeight="39.0" prefWidth="83.0" text="Hapus" />
-      <Button fx:id="ubah" layoutX="720.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleUpdateAction" prefHeight="39.0" prefWidth="83.0" text="Ubah" />
+      <HBox alignment="CENTER" layoutX="444.0" layoutY="426.0" prefHeight="39.0" prefWidth="312.0" spacing="24.0">
+         <children>
+            <Button fx:id="hapus" mnemonicParsing="false" onAction="#handleHapusButtonAction" prefHeight="39.0" stylesheets="@../css/main.css" text="Hapus">
+               <styleClass>
+                  <String fx:value="action__button" />
+                  <String fx:value="action__button--delete" />
+               </styleClass>
+            </Button>
+            <Button fx:id="ubah" mnemonicParsing="false" onAction="#handleUpdateAction" prefHeight="39.0" stylesheets="@../css/main.css" text="Ubah">
+               <styleClass>
+                  <String fx:value="action__button" />
+                  <String fx:value="action__button--edit" />
+               </styleClass>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

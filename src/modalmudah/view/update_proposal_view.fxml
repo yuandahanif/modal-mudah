@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -7,6 +8,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -14,79 +16,93 @@
     <stylesheets>
         <URL value="@/modalmudah/css/main.css" />
     </stylesheets>
-   <children>
-      <Label layoutX="536.0" layoutY="35.0" minHeight="16" minWidth="69" styleClass="form__title" stylesheets="@../css/main.css" text="Ubah Proposal">
-         <font>
-            <Font name="Segoe UI Bold" size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="b_submit" layoutX="513.0" layoutY="450.0" prefHeight="36.0" prefWidth="87.0" styleClass="form__button" stylesheets="@../css/main.css" text="Submit" />
-      <Button fx:id="b_clear" layoutX="620.0" layoutY="450.0" prefHeight="36.0" prefWidth="87.0" styleClass="form__button" stylesheets="@../css/main.css" text="clear" />
-      <VBox layoutX="302.0" layoutY="81.0" prefHeight="280.0" prefWidth="280.0" spacing="10.0">
-         <children>
-            <Label alignment="CENTER" minHeight="16" minWidth="69" prefHeight="29.0" prefWidth="280.0" styleClass="form__sub__title" stylesheets="@../css/main.css" text="Data UKM" textAlignment="CENTER">
-               <font>
-                  <Font name="Segoe UI Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Nama">
-               <font>
-                  <Font name="Segoe UI Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="tf_ukm_nama" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="243.0" promptText="Nama UKM" styleClass="form__textfield" stylesheets="@../css/main.css" />
-            <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Dekripsi">
-               <font>
-                  <Font name="Segoe UI Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextArea fx:id="ta_ukm_deskripsi" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="274.0" promptText="Deskripsi UKM" styleClass="form__textarea" stylesheets="@../css/main.css" />
-            <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Kategori">
-               <font>
-                  <Font name="Segoe UI Bold" size="14.0" />
-               </font>
-            </Label>
-            <ChoiceBox fx:id="cb_kategori" disable="true" prefHeight="26.0" prefWidth="282.0" />
-            <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Jumlah Modal">
-               <font>
-                  <Font name="Segoe UI Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="tf_ukm_jumlah_modal" prefHeight="36.0" prefWidth="243.0" promptText="Jumlah Modal" styleClass="form__textfield" stylesheets="@../css/main.css" />
-         </children>
-      </VBox>
-      <VBox layoutX="702.0" layoutY="81.0" prefHeight="280.0" prefWidth="280.0" spacing="10.0">
-         <children>
-            <Label alignment="CENTER" minHeight="16" minWidth="69" prefHeight="18.0" prefWidth="283.0" styleClass="form__sub__title" stylesheets="@../css/main.css" text="DATA DIRI" textAlignment="CENTER">
-               <font>
-                  <Font name="Segoe UI Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="No. Identitas">
-               <font>
-                  <Font name="Segoe UI Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="tf_dataDiri_noIdentitas" editable="false" prefHeight="36.0" prefWidth="243.0" promptText="No. Indentitas" styleClass="form__textfield" stylesheets="@../css/main.css" />
-            <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Nama">
-               <font>
-                  <Font name="Segoe UI Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="tf_dataDiri_nama" prefHeight="36.0" prefWidth="243.0" promptText="Nama " styleClass="form__textfield" stylesheets="@../css/main.css" />
-            <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Alamat">
-               <font>
-                  <Font name="Segoe UI Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextArea fx:id="ta_dataDiri_alamat" prefHeight="89.0" prefWidth="243.0" promptText="Alamat" styleClass="form__textarea" stylesheets="@../css/main.css" />
-            <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Kontak">
-               <font>
-                  <Font name="Segoe UI Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="tf_dataDiri_kontak" prefHeight="36.0" prefWidth="243.0" promptText="Kontak" styleClass="form__textfield" stylesheets="@../css/main.css" />
-         </children>
-      </VBox>
-   </children>
+    <children>
+        <Label layoutX="536.0" layoutY="35.0" minHeight="16" minWidth="69" styleClass="form__title" stylesheets="@../css/main.css" text="Ubah Proposal">
+            <font>
+                <Font name="Segoe UI Bold" size="14.0" />
+            </font>
+        </Label>
+        <VBox layoutX="302.0" layoutY="81.0" prefHeight="280.0" prefWidth="280.0" spacing="10.0">
+            <children>
+                <Label alignment="CENTER" minHeight="16" minWidth="69" prefHeight="29.0" prefWidth="280.0" styleClass="form__sub__title" stylesheets="@../css/main.css" text="Data UKM" textAlignment="CENTER">
+                    <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Nama">
+                    <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="tf_ukm_nama" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="243.0" promptText="Nama UKM" styleClass="form__textfield" stylesheets="@../css/main.css" />
+                <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Dekripsi">
+                    <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="ta_ukm_deskripsi" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="274.0" promptText="Deskripsi UKM" styleClass="form__textarea" stylesheets="@../css/main.css" />
+                <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Kategori">
+                    <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                    </font>
+                </Label>
+                <ChoiceBox fx:id="cb_kategori" disable="true" prefHeight="26.0" prefWidth="282.0" />
+                <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Jumlah Modal">
+                    <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="tf_ukm_jumlah_modal" prefHeight="36.0" prefWidth="243.0" promptText="Jumlah Modal" styleClass="form__textfield" stylesheets="@../css/main.css" />
+            </children>
+        </VBox>
+        <VBox layoutX="702.0" layoutY="81.0" prefHeight="280.0" prefWidth="280.0" spacing="10.0">
+            <children>
+                <Label alignment="CENTER" minHeight="16" minWidth="69" prefHeight="18.0" prefWidth="283.0" styleClass="form__sub__title" stylesheets="@../css/main.css" text="DATA DIRI" textAlignment="CENTER">
+                    <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="No. Identitas">
+                    <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="tf_dataDiri_noIdentitas" editable="false" prefHeight="36.0" prefWidth="243.0" promptText="No. Indentitas" styleClass="form__textfield" stylesheets="@../css/main.css" />
+                <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Nama">
+                    <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="tf_dataDiri_nama" prefHeight="36.0" prefWidth="243.0" promptText="Nama " styleClass="form__textfield" stylesheets="@../css/main.css" />
+                <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Alamat">
+                    <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="ta_dataDiri_alamat" prefHeight="89.0" prefWidth="243.0" promptText="Alamat" styleClass="form__textarea" stylesheets="@../css/main.css" />
+                <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Kontak">
+                    <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="tf_dataDiri_kontak" prefHeight="36.0" prefWidth="243.0" promptText="Kontak" styleClass="form__textfield" stylesheets="@../css/main.css" />
+            </children>
+        </VBox>
+        <HBox alignment="CENTER" layoutX="501.0" layoutY="450.0" prefHeight="36.0" prefWidth="219.0" spacing="22.0">
+            <children>
+                <Button fx:id="b_submit"  prefHeight="36.0" stylesheets="@../css/main.css" text="Submit">
+                    <styleClass>
+                        <String fx:value="form__button" />
+                        <String fx:value="form__button--submit" />
+                    </styleClass>
+                </Button>
+                <Button fx:id="b_clear"  prefHeight="36.0" stylesheets="@../css/main.css" text="clear">
+                    <styleClass>
+                        <String fx:value="form__button" />
+                        <String fx:value="form__button--clear" />
+                    </styleClass>
+                </Button>
+            </children>
+        </HBox>
+    </children>
 </AnchorPane>

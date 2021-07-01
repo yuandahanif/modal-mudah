@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -21,16 +22,6 @@
             <Font name="Segoe UI Bold" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="b_submit" layoutX="519.0" layoutY="450.0" onAction="#handleSubmitButtonAction" prefHeight="36.0" prefWidth="87.0" stylesheets="@../css/main.css" text="Submit">
-         <styleClass>
-            <String fx:value="form__button" />
-            <String fx:value="form__button--submit" />
-         </styleClass></Button>
-      <Button fx:id="b_clear" layoutX="626.0" layoutY="450.0" onAction="#handleClearButtonAction" prefHeight="36.0" prefWidth="87.0" stylesheets="@../css/main.css" text="clear">
-         <styleClass>
-            <String fx:value="form__button" />
-            <String fx:value="form__button--clear" />
-         </styleClass></Button>
       <VBox layoutX="302.0" layoutY="81.0" prefHeight="280.0" prefWidth="280.0" spacing="10.0">
          <children>
             <Label alignment="CENTER" minHeight="16" minWidth="69" prefHeight="29.0" prefWidth="280.0" styleClass="form__sub__title" stylesheets="@../css/main.css" text="Data UKM" textAlignment="CENTER">
@@ -97,5 +88,21 @@
             <TextField fx:id="tf_dataDiri_kontak" prefHeight="36.0" prefWidth="243.0" promptText="Kontak" styleClass="form__textfield" stylesheets="@../css/main.css" />
          </children>
       </VBox>
+      <HBox alignment="CENTER" layoutX="506.0" layoutY="442.0" prefHeight="36.0" prefWidth="219.0" spacing="22.0">
+         <children>
+            <Button fx:id="b_submit" onAction="#handleSubmitButtonAction" prefHeight="36.0" stylesheets="@../css/main.css" text="Submit">
+               <styleClass>
+                  <String fx:value="form__button" />
+                  <String fx:value="form__button--submit" />
+               </styleClass>
+            </Button>
+            <Button fx:id="b_clear" onAction="#handleClearButtonAction" prefHeight="36.0" stylesheets="@../css/main.css" text="clear">
+               <styleClass>
+                  <String fx:value="form__button" />
+                  <String fx:value="form__button--clear" />
+               </styleClass>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

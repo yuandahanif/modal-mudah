@@ -17,6 +17,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import modalmudah.helper.ImageHelper;
 import modalmudah.helper.xstream;
 import modalmudah.model.Kategori;
 import modalmudah.model.Proposal;
@@ -104,6 +106,9 @@ public class Create_proposal_Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         warning.setTitle("Input error");
+        b_submit.setGraphic(new ImageView(ImageHelper.getImage("plus.png")));
+        b_clear.setGraphic(new ImageView(ImageHelper.getImage("trash.png")));
+
         cb_kategori.getItems().addAll(Arrays.asList(Kategori.values()));
 
         proposalArray = new ArrayList<>();

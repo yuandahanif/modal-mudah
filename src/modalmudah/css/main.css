@@ -39,7 +39,7 @@
 }
 
 /*form button*/
-.form__button {
+.form__button, .action__button {
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
@@ -60,4 +60,12 @@
 }
 .form__button--clear:hover {
     -fx-background-color: darkgray;
+}
+
+.action__button--delete {
+    -fx-background-color: red;
+}
+
+.action__button--edit {
+    -fx-background-color: blue;
 }

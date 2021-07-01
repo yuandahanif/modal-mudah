@@ -30,6 +30,8 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
+import modalmudah.helper.ImageHelper;
 
 /**
  * FXML Controller class
@@ -90,6 +92,7 @@ public class TableView_proposal_Controller implements Initializable {
             // send selected proposal to update view
             Window2_update_Controller controller = new Window2_update_Controller();
             controller.setProposalArrayList(proposalArray);
+            controller.setDataXml(dataXml);
             controller.setProposal(selectedProposal, selectedIndex);
 
             FXMLLoader loader = new FXMLLoader();
@@ -137,6 +140,8 @@ public class TableView_proposal_Controller implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        hapus.setGraphic(new ImageView(ImageHelper.getImage("trash.png")));
+        ubah.setGraphic(new ImageView(ImageHelper.getImage("pen.png")));
 
         dataXml = new xstream(Proposal.XML_FILE_NAME, proposalArray);
         proposalArray = dataXml.loadXml();

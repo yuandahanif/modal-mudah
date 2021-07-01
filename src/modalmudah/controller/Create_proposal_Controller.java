@@ -82,9 +82,7 @@ public class Create_proposal_Controller implements Initializable {
                 warning.setContentText("Semua input harus diisi.");
                 warning.showAndWait();
             }
-
         }
-
     }
 
     @FXML

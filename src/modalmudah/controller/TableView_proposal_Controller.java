@@ -111,14 +111,13 @@ public class TableView_proposal_Controller implements Initializable {
                 dialogStage.initModality(Modality.APPLICATION_MODAL);
                 Scene scene = new Scene(loader.load());
                 dialogStage.setScene(scene);
-                // Show the dialog and wait until the user closes it
+                // Show the dialog
                 dialogStage.show();
 
                 // sata window update di close
                 dialogStage.setOnHiding((WindowEvent e) -> {
                     loadXmlData();
                 });
-
             } else {
                 warning.setContentText("Tidak ada data di tabel yang dipilih.");
                 warning.showAndWait();

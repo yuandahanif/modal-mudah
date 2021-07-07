@@ -29,9 +29,10 @@ import modalmudah.helper.OpenScene;
 public class MainController implements Initializable {
 
     OpenScene OS = new OpenScene();
+    Login_Controller loginController = new Login_Controller();
 
     @FXML
-    private AnchorPane Ap_navigation;
+    private AnchorPane Ap_navigation, Ap_blank;
 
     @FXML
     private Button b_daftarProposal, b_tabelProposal, b_grafikProposal;
@@ -59,11 +60,19 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        Ap_navigation.setVisible(false);
+        Ap_navigation.setVisible(false);
         FXMLLoader halaman = OS.load("login_view");
+
+        halaman.setController(loginController);
 
         try {
             mainPane.setCenter(halaman.load());
+
+            // saat login di klik
+            loginController.setOnLogin(Ap_navigation, (AnchorPane a) -> {
+                a.setVisible(true);
+                mainPane.setCenter(Ap_blank);
+            });
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }

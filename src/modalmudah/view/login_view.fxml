@@ -16,12 +16,12 @@
         <URL value="@/modalmudah/css/main.css" />
     </stylesheets>
    <children>
-      <Label fx:id="tf_title" alignment="CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="50.0" minHeight="16" minWidth="69" prefHeight="21.0" prefWidth="522.0" styleClass="form__title" stylesheets="@../css/main.css" text="Daftar" textAlignment="CENTER">
+      <Label fx:id="tf_title" alignment="CENTER" contentDisplay="CENTER" layoutX="339.0" layoutY="-1.0" minHeight="16" minWidth="69" prefHeight="21.0" prefWidth="522.0" styleClass="form__title" stylesheets="@../css/main.css" text="Selamat datang di ModalMudah" textAlignment="CENTER">
          <font>
             <Font name="Segoe UI Bold" size="14.0" />
          </font>
       </Label>
-      <VBox fx:id="vb_daftar" layoutX="460.0" layoutY="104.0" prefHeight="280.0" prefWidth="280.0" spacing="10.0" visible="false">
+      <VBox fx:id="vb_daftar" layoutX="470.0" layoutY="53.0" prefHeight="280.0" prefWidth="280.0" spacing="10.0" visible="false">
          <children>
             <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="No. Identitas">
                <font>
@@ -46,7 +46,7 @@
                   <Font name="Segoe UI Bold" size="14.0" />
                </font>
             </Label>
-            <PasswordField fx:id="tf_daftar_password" styleClass="form__textfield" stylesheets="@../css/main.css" />
+            <PasswordField fx:id="tf_daftar_password" promptText="Password" styleClass="form__textfield" stylesheets="@../css/main.css" />
             <HBox alignment="CENTER" prefHeight="36.0" prefWidth="219.0" spacing="22.0">
                <children>
                   <Button fx:id="b_daftar_daftar" onAction="#handleSubmitButtonAction" prefHeight="36.0" stylesheets="@../css/main.css" text="Daftar">
@@ -59,20 +59,20 @@
             </HBox>
          </children>
       </VBox>
-      <VBox fx:id="vb_masuk" layoutX="461.0" layoutY="138.0" prefHeight="280.0" prefWidth="280.0" spacing="10.0" visible="false">
+      <VBox fx:id="vb_masuk" layoutX="470.0" layoutY="53.0" prefHeight="280.0" prefWidth="280.0" spacing="10.0" visible="false">
          <children>
             <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Email">
                <font>
                   <Font name="Segoe UI Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_login_email" prefHeight="36.0" prefWidth="243.0" promptText="Kontak" styleClass="form__textfield" stylesheets="@../css/main.css" text="Email" />
+            <TextField fx:id="tf_login_email" prefHeight="36.0" prefWidth="243.0" promptText="Email" styleClass="form__textfield" stylesheets="@../css/main.css" />
             <Label minHeight="16" minWidth="69" styleClass="form__label" stylesheets="@../css/main.css" text="Password">
                <font>
                   <Font name="Segoe UI Bold" size="14.0" />
                </font>
             </Label>
-            <PasswordField fx:id="tf_passwtf_login_passwordord1" styleClass="form__textfield" stylesheets="@../css/main.css" />
+            <PasswordField fx:id="tf_passwtf_login_passwordord1" promptText="Password" styleClass="form__textfield" stylesheets="@../css/main.css" />
             <HBox alignment="CENTER" prefHeight="36.0" prefWidth="219.0" spacing="22.0">
                <children>
                   <Button fx:id="b_login_masuk" onAction="#handleSubmitButtonAction" prefHeight="36.0" stylesheets="@../css/main.css" text="Login">
@@ -85,7 +85,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox fx:id="vb_pilihan" alignment="CENTER" layoutX="471.0" layoutY="148.0" prefHeight="280.0" prefWidth="280.0" spacing="10.0">
+      <VBox fx:id="vb_pilihan" alignment="CENTER" layoutX="470.0" layoutY="37.0" prefHeight="230.0" prefWidth="280.0" spacing="10.0">
          <children>
             <Button fx:id="b_p_masuk" mnemonicParsing="false" prefHeight="32.0" prefWidth="200.0" styleClass="nav__button" stylesheets="@../css/main.css" text="Masuk">
                <font>

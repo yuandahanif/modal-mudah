@@ -21,10 +21,6 @@ import javafx.scene.input.MouseEvent;
 import modalmudah.helper.xstream;
 import modalmudah.model.Proposal;
 
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.stage.Modality;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
@@ -32,7 +28,9 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
+import javafx.stage.WindowEvent;
 import modalmudah.helper.ImageHelper;
+import modalmudah.helper.OpenScene;
 
 /**
  * FXML Controller class
@@ -41,6 +39,7 @@ import modalmudah.helper.ImageHelper;
  */
 public class TableView_proposal_Controller implements Initializable {
 
+    OpenScene OS = new OpenScene();
     Alert warning = new Alert(Alert.AlertType.WARNING);
     private ArrayList<Proposal> proposalArray;
     private xstream<ArrayList<Proposal>> dataXml;
@@ -72,9 +71,7 @@ public class TableView_proposal_Controller implements Initializable {
             hapus.setDisable(true);
             ubah.setDisable(true);
 
-            proposalArray = dataXml.loadXml();
-            dataProposal = observableArrayList(proposalArray);
-            proposal_T.setItems(dataProposal);
+            loadXmlData();
         } catch (NumberFormatException e) {
         }
     }
@@ -106,9 +103,7 @@ public class TableView_proposal_Controller implements Initializable {
                 controller.setDataXml(dataXml);
                 controller.setProposal(selectedProposal, selectedIndex);
 
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(modalmudah.ModalMudah.class.getResource("/modalmudah/view/" + "update_proposal_view.fxml"));
-
+                FXMLLoader loader = OS.load("update_proposal_view");
                 loader.setController(controller);
 
                 Stage dialogStage = new Stage();
@@ -117,7 +112,13 @@ public class TableView_proposal_Controller implements Initializable {
                 Scene scene = new Scene(loader.load());
                 dialogStage.setScene(scene);
                 // Show the dialog and wait until the user closes it
-                dialogStage.showAndWait();
+                dialogStage.show();
+
+                // sata window update di close
+                dialogStage.setOnHiding((WindowEvent e) -> {
+                    loadXmlData();
+                });
+
             } else {
                 warning.setContentText("Tidak ada data di tabel yang dipilih.");
                 warning.showAndWait();
@@ -153,6 +154,12 @@ public class TableView_proposal_Controller implements Initializable {
         ubah.setDisable(true);
     }
 
+    private void loadXmlData() {
+        proposalArray = dataXml.loadXml();
+        dataProposal = observableArrayList(proposalArray);
+        proposal_T.setItems(dataProposal);
+    }
+
     /**
      * Initializes the controller class.
      *
@@ -170,15 +177,13 @@ public class TableView_proposal_Controller implements Initializable {
         ubah.setGraphic(new ImageView(ImageHelper.getImage("pen.png")));
         b_refresh.setGraphic(new ImageView(ImageHelper.getImage("refresh.png")));
 
-        dataXml = new xstream(Proposal.XML_FILE_NAME, proposalArray);
-        proposalArray = dataXml.loadXml();
-        dataProposal = observableArrayList(proposalArray);
-
         namaUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("nama_UKM"));
         modalUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("jumlah_modal_UKM"));
         pemilikUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("nama"));
         kategori_Tc.setCellValueFactory(new PropertyValueFactory<>("kategori"));
-        proposal_T.setItems(dataProposal);
+
+        dataXml = new xstream(Proposal.XML_FILE_NAME, proposalArray);
+        loadXmlData();
     }
 
 }

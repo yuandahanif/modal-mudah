@@ -68,10 +68,21 @@ public class Login_Controller implements Initializable {
     public void setOnLogin(AnchorPane t, Consumer<AnchorPane> callback) {
         // saat user login
         b_login_masuk.setOnAction((ActionEvent event) -> {
-            // logika login
-            System.out.println("login2222");
+            String email = tf_login_email.getText(),
+                    password = tf_login_password.getText();
 
-            callback.accept(t);
+            if (notEmptyValue(email) && notEmptyValue(password)) {
+
+                if (getAccount(email, password)) {
+                    callback.accept(t);
+                } else {
+                    warning.setContentText("email atau password salah");
+                    warning.showAndWait();
+                }
+            } else {
+                warning.setContentText("semua field harus di isi!");
+                warning.showAndWait();
+            }
         });
     }
 
@@ -80,9 +91,19 @@ public class Login_Controller implements Initializable {
     }
 
     private void moveLoginToPane() {
+        warning.setTitle("Masuk input error");
         tf_title.setText("Masuk");
         vb_pilihan.setVisible(false);
         vb_masuk.setVisible(true);
+    }
+
+    private boolean getAccount(String email, String password) {
+        for (User user : userArray) {
+            if (user.getEmail().equals(email)) {
+                return user.getPassword().equals(password);
+            }
+        }
+        return false;
     }
 
     /**
@@ -99,7 +120,7 @@ public class Login_Controller implements Initializable {
 
         // user memilih daftar
         b_p_daftar.setOnAction((ActionEvent event) -> {
-            warning.setTitle("Daftar input  error");
+            warning.setTitle("Daftar input error");
             tf_title.setText("Daftar");
             vb_pilihan.setVisible(false);
             vb_daftar.setVisible(true);

@@ -11,7 +11,6 @@ package modalmudah.model;
  */
 public class User {
 
-    private final Integer id;
     private final String no_id;
     private String email;
     private String name;
@@ -19,16 +18,11 @@ public class User {
 
     public static final String XML_FILE_NAME = "user_data";
 
-    public User(Integer id, String no_id, String email, String name, String password) {
-        this.id = id;
+    public User(String no_id, String email, String name, String password) {
         this.no_id = no_id;
         this.email = email;
         this.name = name;
         this.password = password;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getNo_id() {

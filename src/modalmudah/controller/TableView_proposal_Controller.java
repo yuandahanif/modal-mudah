@@ -31,6 +31,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.WindowEvent;
 import modalmudah.helper.ImageHelper;
 import modalmudah.helper.OpenScene;
+import modalmudah.model.User;
 
 /**
  * FXML Controller class
@@ -41,9 +42,11 @@ public class TableView_proposal_Controller implements Initializable {
 
     OpenScene OS = new OpenScene();
     Alert warning = new Alert(Alert.AlertType.WARNING);
-    private ArrayList<Proposal> proposalArray;
+    private ArrayList<Proposal> proposalArray = new ArrayList<>();
     private xstream<ArrayList<Proposal>> dataXml;
     ObservableList<Proposal> dataProposal;
+    private xstream<User> userXml;
+    private User user = new User();
 
     int proposalIndex;
     Proposal updatedProposal = null;
@@ -78,8 +81,16 @@ public class TableView_proposal_Controller implements Initializable {
 
     @FXML
     private void handleTableClick(MouseEvent event) {
-        hapus.setDisable(false);
-        ubah.setDisable(false);
+
+        Proposal selectedProposal;
+        selectedProposal = (Proposal) proposal_T.getSelectionModel().getSelectedItem();
+        if (selectedProposal.getId().equals(user.getNo_id())) {
+            hapus.setDisable(false);
+            ubah.setDisable(false);
+        } else {
+            hapus.setDisable(true);
+            ubah.setDisable(true);
+        }
     }
 
     @FXML
@@ -181,6 +192,8 @@ public class TableView_proposal_Controller implements Initializable {
         pemilikUKM_Tc.setCellValueFactory(new PropertyValueFactory<>("nama"));
         kategori_Tc.setCellValueFactory(new PropertyValueFactory<>("kategori"));
 
+        userXml = new xstream(User.XML_AUTH_FILE_NAME, user);
+        user = userXml.loadXml();
         dataXml = new xstream(Proposal.XML_FILE_NAME, proposalArray);
         loadXmlData();
     }

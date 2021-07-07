@@ -62,9 +62,9 @@ public class Login_Controller implements Initializable {
     @FXML
     private VBox vb_pilihan;
     @FXML
-    private Button b_p_masuk;
+    private Button b_p_masuk, b_login_kembali;
     @FXML
-    private Button b_p_daftar;
+    private Button b_p_daftar, b_daftar_kembali;
 
     public void setOnLogin(AnchorPane t, Consumer<AnchorPane> callback) {
         // saat user login
@@ -130,11 +130,22 @@ public class Login_Controller implements Initializable {
             vb_pilihan.setVisible(false);
             vb_daftar.setVisible(true);
         });
+        b_daftar_kembali.setOnAction((event) -> {
+            tf_title.setText("Selamat datang di ModalMudah");
+            vb_pilihan.setVisible(true);
+            vb_daftar.setVisible(false);
+        });
 
         // user memilih login
         b_p_masuk.setOnAction((ActionEvent event) -> {
             userXml = new xstream(User.XML_AUTH_FILE_NAME, new User());
             moveLoginToPane();
+        });
+
+        b_login_kembali.setOnAction((event) -> {
+            tf_title.setText("Selamat datang di ModalMudah");
+            vb_pilihan.setVisible(true);
+            vb_masuk.setVisible(false);
         });
 
         // saat user daftar

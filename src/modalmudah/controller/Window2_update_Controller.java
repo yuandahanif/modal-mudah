@@ -35,10 +35,7 @@ public class Window2_update_Controller implements Initializable {
     private Proposal proposal;
 
     @FXML
-    private ChoiceBox cb_kategori;
-
-    @FXML
-    private TextField tf_ukm_nama, tf_ukm_jumlah_modal, tf_dataDiri_nama, tf_dataDiri_noIdentitas, tf_dataDiri_kontak;
+    private TextField tf_ukm_nama, tf_ukm_jumlah_modal, tf_dataDiri_nama, tf_dataDiri_noIdentitas, tf_dataDiri_kontak, cb_kategori;
 
     @FXML
     private TextArea ta_ukm_deskripsi, ta_dataDiri_alamat;
@@ -67,7 +64,7 @@ public class Window2_update_Controller implements Initializable {
         ta_ukm_deskripsi.setText(proposal.getDeskripsi_UKM());
         tf_ukm_jumlah_modal.setText(String.valueOf(proposal.getJumlah_modal_UKM()));
 
-        cb_kategori.setValue(proposal.getKategori());
+        cb_kategori.setText(proposal.getKategori());
         cb_kategori.setDisable(true);
     }
 
@@ -109,19 +106,20 @@ public class Window2_update_Controller implements Initializable {
 
         // pas submit di klik
         b_submit.setOnAction((ActionEvent event) -> {
-            // TODO: hayo updatenya gimana :v
             if (proposalArrayList != null) {
                 if (notEmptyValue(tf_dataDiri_nama.getText()) && notEmptyValue(tf_ukm_nama.getText())) {
                     try {
                         proposal.setNama_UKM(tf_ukm_nama.getText());
                         proposal.setDeskripsi_UKM(ta_ukm_deskripsi.getText());
                         proposal.setJumlah_modal_UKM(Integer.valueOf(tf_ukm_jumlah_modal.getText()));
-                        proposal.setNama(tf_dataDiri_nama.getText());
                         proposal.setAlamat(ta_dataDiri_alamat.getText());
                         proposal.setKontak(tf_dataDiri_kontak.getText());
                         proposalArrayList.set(updateProposalIndex, proposal);
 
                         dataXml.saveToXML(proposalArrayList);
+                        warning.setTitle("Berhasil update proposal");
+                        warning.setContentText("");
+                        warning.showAndWait();
                     } catch (NumberFormatException e) {
                         warning.setContentText("Modal harus angka");
                         warning.showAndWait();

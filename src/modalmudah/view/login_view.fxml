@@ -49,6 +49,12 @@
             <PasswordField fx:id="tf_daftar_password" promptText="Password" styleClass="form__textfield" stylesheets="@../css/main.css" />
             <HBox alignment="CENTER" prefHeight="36.0" prefWidth="219.0" spacing="22.0">
                <children>
+                  <Button fx:id="b_daftar_kembali" layoutX="118.0" layoutY="10.0" prefHeight="36.0" stylesheets="@../css/main.css" text="Kembali">
+                     <styleClass>
+                        <String fx:value="form__button" />
+                        <String fx:value="form__button--clear" />
+                     </styleClass>
+                  </Button>
                   <Button fx:id="b_daftar_daftar" prefHeight="36.0" stylesheets="@../css/main.css" text="Daftar">
                      <styleClass>
                         <String fx:value="form__button" />
@@ -75,6 +81,12 @@
             <PasswordField fx:id="tf_login_password" promptText="Password" styleClass="form__textfield" stylesheets="@../css/main.css" />
             <HBox alignment="CENTER" prefHeight="36.0" prefWidth="219.0" spacing="22.0">
                <children>
+                  <Button fx:id="b_login_kembali" layoutX="121.0" layoutY="10.0" prefHeight="36.0" stylesheets="@../css/main.css" text="Kembali">
+                     <styleClass>
+                        <String fx:value="form__button" />
+                        <String fx:value="form__button--clear" />
+                     </styleClass>
+                  </Button>
                   <Button fx:id="b_login_masuk" prefHeight="36.0" stylesheets="@../css/main.css" text="Login">
                      <styleClass>
                         <String fx:value="form__button" />

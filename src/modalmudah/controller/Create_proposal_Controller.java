@@ -22,6 +22,7 @@ import modalmudah.helper.ImageHelper;
 import modalmudah.helper.xstream;
 import modalmudah.model.Kategori;
 import modalmudah.model.Proposal;
+import modalmudah.model.User;
 
 /**
  * FXML Controller class
@@ -32,7 +33,9 @@ public class Create_proposal_Controller implements Initializable {
 
     Alert warning = new Alert(Alert.AlertType.WARNING);
     private xstream<ArrayList<Proposal>> dataXml;
-    private ArrayList<Proposal> proposalArray;
+    private ArrayList<Proposal> proposalArray = new ArrayList<>();
+    private xstream<User> userXml;
+    private User user = new User();
 
     @FXML
     private ChoiceBox cb_kategori;
@@ -47,8 +50,8 @@ public class Create_proposal_Controller implements Initializable {
     private Button b_submit, b_clear;
 
     private void clearFormInput() {
-        tf_dataDiri_noIdentitas.setText("");
-        tf_dataDiri_nama.setText("");
+//        tf_dataDiri_noIdentitas.setText("");
+//        tf_dataDiri_nama.setText("");
         ta_dataDiri_alamat.setText("");
         tf_dataDiri_kontak.setText("");
         tf_ukm_nama.setText("");
@@ -90,7 +93,6 @@ public class Create_proposal_Controller implements Initializable {
     @FXML
     private void handleClearButtonAction(ActionEvent event) {
         clearFormInput();
-        b_clear.setDisable(true);
     }
 
     private boolean notEmptyValue(String input) {
@@ -111,9 +113,16 @@ public class Create_proposal_Controller implements Initializable {
 
         cb_kategori.getItems().addAll(Arrays.asList(Kategori.values()));
 
-        proposalArray = new ArrayList<>();
+        userXml = new xstream(User.XML_AUTH_FILE_NAME, user);
+        user = userXml.loadXml();
         dataXml = new xstream(Proposal.XML_FILE_NAME, proposalArray);
         proposalArray = dataXml.loadXml();
+
+        tf_dataDiri_noIdentitas.setDisable(true);
+        tf_dataDiri_noIdentitas.setText(user.getNo_id());
+
+        tf_dataDiri_nama.setDisable(true);
+        tf_dataDiri_nama.setText(user.getName());
     }
 
 }

@@ -32,6 +32,7 @@ public class Login_Controller implements Initializable {
     Alert warning = new Alert(Alert.AlertType.WARNING);
     private ArrayList<User> userArray = new ArrayList<>();
     private xstream<ArrayList<User>> dataXml;
+    private xstream<User> userXml;
 
     @FXML
     private Label tf_title;
@@ -72,8 +73,10 @@ public class Login_Controller implements Initializable {
                     password = tf_login_password.getText();
 
             if (notEmptyValue(email) && notEmptyValue(password)) {
-
-                if (getAccount(email, password)) {
+                User user = getAccount(email, password);
+                if (null != user) {
+                    // simpan sesi login
+                    userXml.saveToXML(user);
                     callback.accept(t);
                 } else {
                     warning.setContentText("email atau password salah");
@@ -97,13 +100,15 @@ public class Login_Controller implements Initializable {
         vb_masuk.setVisible(true);
     }
 
-    private boolean getAccount(String email, String password) {
+    private User getAccount(String email, String password) {
         for (User user : userArray) {
             if (user.getEmail().equals(email)) {
-                return user.getPassword().equals(password);
+                if (user.getPassword().equals(password)) {
+                    return user;
+                }
             }
         }
-        return false;
+        return null;
     }
 
     /**
@@ -128,6 +133,7 @@ public class Login_Controller implements Initializable {
 
         // user memilih login
         b_p_masuk.setOnAction((ActionEvent event) -> {
+            userXml = new xstream(User.XML_AUTH_FILE_NAME, new User());
             moveLoginToPane();
         });
 

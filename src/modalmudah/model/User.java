@@ -17,6 +17,11 @@ public class User {
     private String password;
 
     public static final String XML_FILE_NAME = "user_data";
+    public static final String XML_AUTH_FILE_NAME = "auth_user";
+
+    public User() {
+        this.no_id = null;
+    }
 
     public User(String no_id, String email, String name, String password) {
         this.no_id = no_id;

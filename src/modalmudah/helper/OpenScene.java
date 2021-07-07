@@ -19,7 +19,6 @@ public class OpenScene {
     private Pane halaman;
 
     public Pane getPane(String filename) {
-
         try {
             URL fileView = modalmudah.ModalMudah.class.getResource("/modalmudah/view/" + filename + ".fxml");
 
@@ -36,5 +35,15 @@ public class OpenScene {
         }
 
         return halaman;
+    }
+
+    public FXMLLoader load(String filename) {
+        FXMLLoader loader = new FXMLLoader();
+        try {
+            loader.setLocation(modalmudah.ModalMudah.class.getResource("/modalmudah/view/" + filename + ".fxml"));
+            return loader;
+        } catch (Exception e) {
+            throw e;
+        }
     }
 }

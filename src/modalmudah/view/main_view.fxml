@@ -31,17 +31,17 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <Button fx:id="b_daftarProposal" mnemonicParsing="false" onAction="#daftarProposal" prefHeight="41.0" style="-fx-background-color: #DDBC95;" text="Daftar Proposal" textFill="#fcfafa">
+                        <Button fx:id="b_daftarProposal" mnemonicParsing="false" onAction="#daftarProposal" prefHeight="41.0" styleClass="nav__button" stylesheets="@../css/main.css" text="Daftar Proposal" textFill="#fcfafa">
                            <font>
                               <Font name="Segoe UI Bold" size="17.0" />
                            </font>
                         </Button>
-                        <Button fx:id="b_tabelProposal" mnemonicParsing="false" onAction="#tableProposal" prefHeight="41.0" style="-fx-background-color: #DDBC95;" text="Lihat Proposal" textFill="#fcfafa">
+                        <Button fx:id="b_tabelProposal" mnemonicParsing="false" onAction="#tableProposal" prefHeight="41.0" styleClass="nav__button" stylesheets="@../css/main.css" text="Lihat Proposal" textFill="#fcfafa">
                            <font>
                               <Font name="Segoe UI Bold" size="17.0" />
                            </font>
                         </Button>
-                        <Button fx:id="b_grafikProposal" mnemonicParsing="false" onAction="#grafikProposal" prefHeight="41.0" style="-fx-background-color: #DDBC95;" text="Statistik" textFill="#fcfafa">
+                        <Button fx:id="b_grafikProposal" mnemonicParsing="false" onAction="#grafikProposal" prefHeight="41.0" styleClass="nav__button" stylesheets="@../css/main.css" text="Statistik" textFill="#fcfafa">
                            <font>
                               <Font name="Segoe UI Bold" size="19.0" />
                            </font>

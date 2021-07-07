@@ -12,6 +12,14 @@
     -fx-background-color: lightsalmon;*/
 }
 
+.nav__button {
+    -fx-background-color:  #DDBC95;
+}
+
+.nav__button:hover {
+    -fx-background-color: #ba9972;
+}
+
 /*form*/
 
 .form__title {

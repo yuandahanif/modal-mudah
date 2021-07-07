@@ -17,6 +17,8 @@ public class User {
     private String name;
     private String password;
 
+    public static final String XML_FILE_NAME = "user_data";
+
     public User(Integer id, String no_id, String email, String name, String password) {
         this.id = id;
         this.no_id = no_id;

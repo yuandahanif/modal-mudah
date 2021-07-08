@@ -11,12 +11,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@/modalmudah/css/main.css" />
     </stylesheets>
    <children>
-      <Label fx:id="tf_title" alignment="CENTER" contentDisplay="CENTER" layoutX="339.0" layoutY="-1.0" minHeight="16" minWidth="69" prefHeight="21.0" prefWidth="522.0" styleClass="form__title" stylesheets="@../css/main.css" text="Selamat datang di ModalMudah" textAlignment="CENTER">
+      <Label fx:id="tf_title" alignment="CENTER" contentDisplay="CENTER" layoutX="339.0" layoutY="-1.0" minHeight="16" minWidth="69" prefHeight="32.0" prefWidth="522.0" styleClass="form__title" stylesheets="@../css/main.css" text="Selamat datang di ModalMudah" textAlignment="CENTER">
          <font>
             <Font name="Segoe UI Bold" size="14.0" />
          </font>
@@ -97,7 +97,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox fx:id="vb_pilihan" alignment="CENTER" layoutX="470.0" layoutY="37.0" prefHeight="230.0" prefWidth="280.0" spacing="10.0">
+      <VBox fx:id="vb_pilihan" alignment="CENTER" layoutX="470.0" layoutY="53.0" prefHeight="230.0" prefWidth="280.0" spacing="10.0">
          <children>
             <Button fx:id="b_p_masuk" mnemonicParsing="false" prefHeight="32.0" prefWidth="200.0" styleClass="nav__button" stylesheets="@../css/main.css" text="Masuk">
                <font>

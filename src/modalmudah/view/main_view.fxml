@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #F8F8F8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modalmudah.controller.MainController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #F8F8F8;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modalmudah.controller.MainController">
    <children>
       <BorderPane fx:id="mainPane" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: lightgrey;">
          <top>
@@ -23,7 +23,7 @@
                                     <Font name="Segoe UI" size="23.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" layoutX="85.0" prefHeight="41.0" prefWidth="94.0" style="-fx-background-color: #DDBC95;" text="Mudah" textAlignment="CENTER" textFill="WHITE">
+                              <Label alignment="CENTER" layoutX="85.0" prefHeight="41.0" prefWidth="94.0" style="-fx-background-color: #84A9AC;" text="Mudah" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Swis721 BlkCn BT Black" size="23.0" />
                                  </font>
